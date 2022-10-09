@@ -1,0 +1,12 @@
+<% if(profiles.length == 0) { %>
+	<h1 style="text-align: center; margin-top: 25px;">No One Has Joined Yet</h1>
+<% } %>
+<% profiles.forEach(profile => { %>
+		<div class="card">
+	  <div class="card-body">
+		<h5 class="card-title"><%= profile.name %></h5>
+		<p class="card-text"><%= profile.bio %></p>
+		<a href="/profile/<%= profile._id %>" class="btn btn-primary">Go To Profile</a>
+	  </div>
+	</div>
+	<% }) %>

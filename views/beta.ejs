@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EBS 2/3 2.0</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./public/stylesheets/landing.css">
+		<style>
+		body {
+  background-color: #000;
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 25vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}	
+.slideshow li:nth-child(1) { 
+  	background-image: url(https://scontent.fcai19-8.fna.fbcdn.net/v/t39.30808-6/307311195_165973109421332_7296643384279267731_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NlMmPb16nCQAX_QDstl&tn=SleRPF9H4xacyMjq&_nc_ht=scontent.fcai19-8.fna&oh=00_AT8JA8LyNtBXy8Q0awK0gfY_PsJVu3wnmEzGDro_w7ZIIg&oe=63485AA6)
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://scontent.fcai19-8.fna.fbcdn.net/v/t39.30808-6/308680327_165973106087999_6583279361240773797_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=e3f864&_nc_ohc=NYy1OqvNV5IAX-o4RD-&tn=SleRPF9H4xacyMjq&_nc_ht=scontent.fcai19-8.fna&oh=00_AT9oCvhfmantwMLNIpE9Exm_0_FFAk1v-RHffIRJAeDUQQ&oe=63488DAB);
+  animation-delay: 10s; 
+}
+
+	a img {
+		width: 300px;
+		margin-bottom: 10px;
+		}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}		
+		</style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+    <div id="landing-header">
+ 		<h1>Welcome to EBS 2/3!</h1>
+		<h5>Developed By: <a href="/profile/5f5b84113c90da046d1df8fa">Mourad Sherif</a></h5>
+		<div style="display: block">
+			<% if(user){ %>
+				<a href="/home" class="btn btn-lg btn-primary">Home Page</a>
+			<% } else { %>
+				<a href="/users/login" class="btn btn-lg btn-primary">Log In</a>
+				<a href="/users/register" class="btn btn-lg btn-secondary">Register</a>
+			<% } %>
+		</div>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+    </ul>
+
+<%- include("./partials/footer.ejs") %>
